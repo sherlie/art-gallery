@@ -1,38 +1,257 @@
-.App {
-  text-align: center;
+:root {
+  --gold: #d29f1b;
+  --dark-gold: #71540A;
+  --dark-gray: #222;
+  --gallery-img-padding: 1vw;
+  --gallery-img-size: 30vw;
+  --padding-size: clamp(1rem, 5vw, 5rem);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+  min-height: calc(90vh - 3rem);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background-color: var(--dark-gray);
   color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-family: 'Kaisei Decol';
+  font-size: clamp(3rem, 10vw, 7rem);
+  text-shadow: 1px 30px 150px var(--dark-gold);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h2 {
+  margin: 0;
+  padding: 0;
+  color: var(--gold);
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+nav {
+  height: 3.5rem;
+  border-bottom: 1px solid white;
+}
+
+@media only screen and (min-width: 600px) {
+  :root {
+    --gallery-img-size: min(25vw, 40vh, 40rem);
+    --gallery-img-padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.navbar-container {
+  width: 50%;
+  position: absolute;
+  right: 0px;
+}
+
+.navbar {
+  padding: 0;
+  margin: 0.5rem 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.navbar-title {
+  padding: 0;
+  margin: 0.5rem var(--padding-size);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.navlink-active {
+  border-bottom: 3px solid var(--gold);
+  transition: 0.2s;
+}
+
+.navlink-title {
+  color: var(--gold);
+  font-weight: 800;
+  font-family: '',
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.image-button img {
+  min-height: var(--gallery-img-size);
+  min-width: var(--gallery-img-size);
+  object-fit: cover;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.image-button:hover img {
+  opacity: 0.6;
+}
+
+.image-wrapper {
+  width: var(--gallery-img-size);
+  height: var(--gallery-img-size);
+  object-fit: cover;
+  overflow: hidden;
+  background: #444;
+}
+
+.image-wrapper img {
+  width: 100%;
+  max-height: 100%;
+}
+
+.image-view-wrapper img {
+  z-index: 2;
+}
+
+.dialog-wrapper {
+  /* to make a shadow behind dialog and close by click outside dialog */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /*to center dialog*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-dialog {
+  padding: 0;
+  border: none;
+  background: none;
+  max-height: 90vh;
+  max-width: 90vw;
+}
+
+.image-dialog img {
+  max-height: 90vh;
+  max-width: 90vw;
+}
+
+.button-link {
+  background-color: var(--gold);
+  color: black;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  width: min(12rem, 100%);
+}
+
+.button {
+  background-color: var(--gold);
+  color: black;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  margin: 2rem 0;
+}
+
+.button-start {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 4rem 0;
+}
+
+.button-load {
+  min-width: var(--gallery-img-size);
+}
+
+.on-button {
+  position: absolute;
+  background: none;
+  border: none;
+  color: white;
+  text-shadow: 2px 2px 10px #000;
+  cursor: pointer;
+}
+
+.close-button {
+  top: 0;
+  right: 0;
+}
+
+.heart-button {
+  bottom: 0;
+  right: 0;
+}
+
+.fill-icon svg {
+  fill: var(--gold);
+}
+
+.about-container {
+  position: fixed;
+  top: 30%;
+}
+
+.bg-image {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to bottom, transparent, var(--dark-gray)), url("https://i1.wp.com/d24fkeqntp1r7r.cloudfront.net/wp-content/uploads/2017/05/09043355/The-Death-of-Publius-Decius-Mus-in-Battle-1618-by-Peter-Paul-Rubens.jpg?fit=1280%2C708&ssl=1");
+  background-position: top center;
+  background-size: cover;
+}
+
+.bg-image-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.8);
+}
+
+.content-padding {
+  padding: var(--padding-size);
+}
+
+.center-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.grid-container {
+  display: grid;
+  width: calc(var(--gallery-img-size)*3 +6*var(--gallery-img-padding));
+  grid-template-columns: auto auto auto;
+}
+
+.grid-container-2 {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+}
+
+.grid-item-padding {
+  padding: var(--gallery-img-padding);
 }
