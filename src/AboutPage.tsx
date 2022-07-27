@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <div className='content-padding'>
       <div>
-        <h1>Hi!</h1>
+        <h1 style={{ fontSize: "2rem" }}>Hi!</h1>
         <p>I am a frontend developer, and this is my pet project to show my skills.</p>
       </div>
 

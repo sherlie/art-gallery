@@ -26,7 +26,7 @@ body {
 
 h1 {
   font-family: 'Kaisei Decol';
-  /*font-size: clamp(3rem, 10vw, 7rem);*/
+  font-size: clamp(3rem, 10vw, 7rem);
   text-shadow: 1px 30px 150px var(--dark-gold);
 }
 
