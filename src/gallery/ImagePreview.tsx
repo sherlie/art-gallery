@@ -6,24 +6,27 @@ import HeartIcon from '../icons/HeartIcon';
 type ImageViewProps = {
   artwork: Artwork;
   setOpenedImg: (artwork: Artwork | undefined) => void;
+  onLike: (artworkId: string) => void;
+  isLiked: boolean;
 }
 
-const ImagePreview = ({ artwork, setOpenedImg }: ImageViewProps) => {
+const ImagePreview = ({ artwork, setOpenedImg, onLike, isLiked }: ImageViewProps) => {
 
   return (
     <div className="image-wrapper">
-      <button className="image-button" onClick={() => setOpenedImg(artwork)} >
+      <button className="image-button" onClick={() => setOpenedImg(artwork)}
+      >
         <img
           src={artwork.src}
           alt={artwork.description} />
       </button>
       <button
-        className='on-button heart-button fill-icon' /* fill-icon */
-        onClick={() => console.log("j")}
+        className={`on-button heart-button ${isLiked ? "fill-icon" : ""}`}
+        onClick={() => onLike(artwork.id)}
       >
         <HeartIcon size={24} />
       </button>
-    </div>
+    </div >
   );
 }
 

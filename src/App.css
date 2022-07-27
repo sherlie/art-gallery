@@ -53,12 +53,6 @@ nav {
   }
 }
 
-.navbar-container {
-  width: 50%;
-  position: absolute;
-  right: 0px;
-}
-
 .navbar {
   padding: 0;
   margin: 0.5rem 0;
@@ -166,6 +160,10 @@ nav {
   width: min(12rem, 100%);
 }
 
+.a-link {
+  color: var(--gold);
+}
+
 .button {
   background-color: var(--gold);
   color: black;
@@ -181,7 +179,7 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 4rem 0;
+  margin: 2rem 0;
 }
 
 .button-load {
