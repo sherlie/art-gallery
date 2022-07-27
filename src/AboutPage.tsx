@@ -4,10 +4,20 @@ import './App.css';
 const AboutPage = () => {
   return (
     <div className='content-padding'>
-      <div className='about-container'>
-        <h3>Hi! This is a website where I show my skills.</h3>
+      <div>
+        <h1>Hi!</h1>
+        <p>I am a frontend developer, and this is my pet project to show my skills.</p>
       </div>
-    </div>
+
+      <address>
+        <a className='a-link' href='https://www.linkedin.com/in/diana-grygorian-169ba713b/'>
+          LinkedIn
+        </a>
+        <span>
+          d.grygorian@gmail.com
+        </span>
+      </address>
+    </div >
   );
 }
 
