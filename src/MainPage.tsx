@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './styles/App.scss';
 import RightArrowIcon from './icons/RightArrowIcon';
 
 const MainPage = () => {
@@ -9,7 +9,7 @@ const MainPage = () => {
         <div className='content-padding'>
           <h1>Your Digital<br />Art Gallery</h1>
           <a href='/gallery'>
-            <button className='button button-start'>
+            <button className='button-start'>
               Start exploring<RightArrowIcon size={20} />
             </button>
           </a>

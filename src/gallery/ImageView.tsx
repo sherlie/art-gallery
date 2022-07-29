@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../styles/App.scss';
 import { Artwork } from '../data';
 import CloseIcon from '../icons/CloseIcon';
 import HeartIcon from '../icons/HeartIcon';
@@ -15,14 +15,14 @@ const ImageView = ({ artwork, setOpenedImg, isLiked, onLike }: ImageViewProps) =
 
   return (
     <div className='dialog-wrapper' onClick={() => setOpenedImg(undefined)}>
-      <dialog open className="image-dialog" onClick={(event) => event.stopPropagation()}>
+      <dialog open onClick={(event) => event.stopPropagation()}>
         <img src={artwork.src} alt={artwork.description} />
-        <button className='on-button close-button' onClick={() => setOpenedImg(undefined)}>
+        <button className='top-right-button' onClick={() => setOpenedImg(undefined)}>
           <CloseIcon size={36} />
         </button>
         <button
           onClick={() => onLike(artwork.id)}
-          className={`on-button heart-button ${isLiked ? "fill-icon" : ""}`}>
+          className={`bottom-right-button ${isLiked ? "fill-icon" : ""}`}>
           <HeartIcon size={36} />
         </button>
       </dialog >

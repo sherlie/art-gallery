@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../styles/App.scss';
 import { Artwork } from '../data';
 import HeartIcon from '../icons/HeartIcon';
 
@@ -21,7 +21,7 @@ const ImagePreview = ({ artwork, setOpenedImg, onLike, isLiked }: ImageViewProps
           alt={artwork.description} />
       </button>
       <button
-        className={`on-button heart-button ${isLiked ? "fill-icon" : ""}`}
+        className={`bottom-right-button ${isLiked ? "fill-icon" : ""}`}
         onClick={() => onLike(artwork.id)}
       >
         <HeartIcon size={24} />

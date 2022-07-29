@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../App.css';
+import '../styles/App.scss';
 import ImageView from './ImageView';
 import { Artwork, artworks as fullArtData } from '../data';
 import ImagePreview from './ImagePreview';
@@ -48,7 +48,7 @@ const GalleryPage = () => {
   return (
     <div className='content-padding'>
       <div className='center-wrapper'>
-        <div className='grid-container'>
+        <div className='grid-container-gallery'>
           {entries.map(artwork =>
             <div key={artwork.id} className='grid-item-padding' >
               <ImagePreview
@@ -65,7 +65,7 @@ const GalleryPage = () => {
         hasMore() &&
         <div className='center-wrapper'>
           <button
-            className='button button-load'
+            className='button-load'
             onClick={() => loadMore()}
           >
             Load More
