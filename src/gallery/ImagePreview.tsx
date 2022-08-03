@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/App.scss';
-import { Artwork } from '../data';
+import { Artwork } from '../types';
 import HeartIcon from '../icons/HeartIcon';
 
 type ImageViewProps = {

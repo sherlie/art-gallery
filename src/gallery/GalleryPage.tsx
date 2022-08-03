@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import { useDispatch, useSelector } from 'react-redux';
 import '../styles/App.scss';
 import ImageView from './ImageView';
-import { Artwork } from '../data';
+import { Artwork } from '../types';
 import ImagePreview from './ImagePreview';
-import { Store } from '../redux/store';
+import { useAppDispatch, useAppSelector } from '../redux/store';
 import { loadMore } from '../redux/page';
 
 /* The 1 key for using cookies */
 const COOKIE_LIKED_ENTRIES = 'liked_entries';
 
 const GalleryPage = () => {
+  const entries = useAppSelector<Artwork[]>(state => state.page.entries);
+  const hasMore = useAppSelector<boolean>(state => state.page.hasMore);
+  const dispatch = useAppDispatch();
 
-  const entries = useSelector<Store, Artwork[]>(state => state.page.entries);
-  const hasMore = useSelector<Store, boolean>(state => state.page.hasMore);
-  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadMore());
+  }, [dispatch])
 
   const [openedImg, setOpenedImg] = useState<Artwork | undefined>(undefined);
   const [cookies, setCookie] = useCookies([COOKIE_LIKED_ENTRIES]);

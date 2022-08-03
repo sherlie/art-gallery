@@ -1,12 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import pageReducer, { PageState } from "./page";
+import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
+import pageReducer from "./page";
 
-export type Store = {
-  page: PageState,
-}
-
-export default configureStore<Store>({
+const store = configureStore({
   reducer: {
     page: pageReducer,
   },
 })
+
+export default store;
+
+export type Store = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<Store> = useSelector;
