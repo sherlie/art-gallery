@@ -42,7 +42,7 @@ const GalleryPage = () => {
   return (
     <div className='content-padding'>
       <div className='center-wrapper'>
-        <div className='grid-container-gallery'>
+        <div className='grid-container-gallery' data-testid="gallery-container">
           {entries.map(artwork =>
             <div key={artwork.id} className='grid-item-padding' >
               <ImagePreview

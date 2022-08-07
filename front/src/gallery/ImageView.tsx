@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/App.scss';
+//import '../styles/App.scss';
 import { Artwork } from '../types';
 import CloseIcon from '../icons/CloseIcon';
 import HeartIcon from '../icons/HeartIcon';
